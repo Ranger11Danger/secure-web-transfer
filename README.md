@@ -34,6 +34,9 @@ now if you navigate to `https://<ip>/<random path>` and accept the self signed c
 if you would like to `curl` this file instead just make sure you use the `-k` flag to ignore self signed cert
 `curl -k https://<ip>/<random path> -o out` will save the selected file as `out`
 
+if you would like to use `wget` then you have to use the `--no-check-certificate` to ignore out self signed cert
+`wget --no-check-certificate https://<ip>/<random path> -O out` will save the selected file as out
+
 
 ## Stop the Server
 to stop the server run the `stop` command
