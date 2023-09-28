@@ -74,7 +74,7 @@ class ServerCmdApp(Cmd):
 
         if not (os.path.exists('cert.pem') and os.path.exists('key.pem')):
             self.poutput(f"[LOG] Generating Fresh Certs")
-            os.system('openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" -keyout key.pem -out cert.pem 2> /dev/null')
+            os.system('openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/CN=example.com" -keyout key.pem -out cert.pem 2> /dev/null')
 
         server_thread = threading.Thread(target=lambda: app.run(host='0.0.0.0', port=443, ssl_context=('cert.pem', 'key.pem')))
         server_thread.start()
